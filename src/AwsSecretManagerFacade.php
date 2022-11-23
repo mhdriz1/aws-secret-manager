@@ -16,6 +16,6 @@ class AwsSecretManagerFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'aws-secret-manager';
+        return 'secret-manager';
     }
 }
