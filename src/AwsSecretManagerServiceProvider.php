@@ -17,7 +17,7 @@ class AwsSecretManagerServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('aws-secret-manager.php'),
+                __DIR__.'/../config/config.php' => config_path('secret-manager.php'),
             ], 'config');
         }
     }
@@ -28,10 +28,10 @@ class AwsSecretManagerServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'aws-secret-manager');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'secret-manager');
 
         // Register the main class to use with the facade
-        $this->app->singleton('aws-secret-manager', function () {
+        $this->app->singleton('secret-manager', function () {
             return new AwsSecretManager;
         });
     }
