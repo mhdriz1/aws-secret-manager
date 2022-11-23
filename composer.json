@@ -1,0 +1,54 @@
+{
+    "name": "mhdriz1/aws-secret-manager",
+    "description": "",
+    "keywords": [
+        "mhdriz1",
+        "aws-secret-manager"
+    ],
+    "homepage": "https://github.com/mhdriz1/aws-secret-manager",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "mhdriz1",
+            "email": "mhdriz1@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mhdriz1\\AwsSecretManager\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mhdriz1\\AwsSecretManager\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mhdriz1\\AwsSecretManager\\AwsSecretManagerServiceProvider"
+            ],
+            "aliases": {
+                "AwsSecretManager": "Mhdriz1\\AwsSecretManager\\AwsSecretManagerFacade"
+            }
+        }
+    }
+}
