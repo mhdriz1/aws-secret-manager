@@ -31,4 +31,14 @@ return [
     'profile' => env('AWS_SECRET_MANAGER_PROFILE', 'default'),
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | AWS Secret Manager Name
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'name' => env('AWS_SECRET_MANAGER_NAME', 'prod/App/Env'),
+
+
 ];

@@ -2,6 +2,7 @@
 
 namespace Mhdriz1\AwsSecretManager;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class AwsSecretManagerServiceProvider extends ServiceProvider
@@ -19,6 +20,16 @@ class AwsSecretManagerServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('secret-manager.php'),
             ], 'config');
+        }
+
+        $name = config('secret-manager.name');
+
+        if($name) {
+            $variables = AwsSecretManager::get($name);
+
+            foreach($variables as $key => $secret) {
+                Config::set($key, $secret);
+            }
         }
     }
 
